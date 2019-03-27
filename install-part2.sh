@@ -15,7 +15,9 @@ hwclock --systohc --utc
 # Network configuration
 echo 'Desktop' > /etc/hostname
 echo >> /etc/hosts
-echo '127.0.1.1 localhost.localdomain Desktop' >> /etc/hosts
+echo '127.0.0.1 localhost' >> /etc/hosts
+echo '::1 localhost' >> /etc/hosts
+echo '127.0.1.1 Desktop.localdomain Desktop' >> /etc/hosts
 pacman -S --noconfirm networkmanager
 systemctl enable NetworkManager
 
