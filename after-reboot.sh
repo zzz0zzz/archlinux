@@ -25,6 +25,14 @@ sudo pacman -S --noconfirm i3-gaps rxvt-unicode feh i3status
 mkdir -p .config/i3
 wget https://github.com/zzz0zzz/archlinux/raw/master/config/i3 --output-document .config/i3/config
 
+# AUR packages
+# culmus
+git clone https://aur.archlinux.org/culmus.git
+cd culmus
+makepkg -sirc
+cd ..
+rm -r culmus
+
 # Git configuration
 git config --global user.name zzz0zzz
 git config --global user.email gurufor@yk20.com
