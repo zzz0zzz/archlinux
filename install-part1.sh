@@ -20,10 +20,8 @@ sgdisk /dev/"$device_name" --new=4:0:0    --typecode=4:8302 --change-name=4:home
 # Formatting
 mkfs.fat -F32 /dev/"$partition_prefix"1
 mkswap /dev/"$partition_prefix"2; swapon /dev/"$partition_prefix"2
-wipefs /dev/"$partition_prefix"3
-mkfs.ext4 /dev/"$partition_prefix"3
-wipefs /dev/"$partition_prefix"4
-mkfs.ext4 /dev/"$partition_prefix"4
+mkfs.ext4 -F -F /dev/"$partition_prefix"3
+mkfs.ext4 -F -F /dev/"$partition_prefix"4
 
 # Mounting
 mount /dev/"$partition_prefix"3 /mnt
