@@ -30,9 +30,9 @@ wget https://github.com/zzz0zzz/archlinux/raw/master/config/i3 --output-document
 # culmus
 git clone https://aur.archlinux.org/culmus.git
 cd culmus
-makepkg -sirc
+sudo makepkg -sirc
 cd ..
-rm -r culmus
+sudo rm -r culmus
 
 # Git configuration
 git config --global user.name zzz0zzz
