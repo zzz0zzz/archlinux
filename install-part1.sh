@@ -18,7 +18,7 @@ sgdisk /dev/"$device_name" --new=3:0:+20G --typecode=3:8304 --change-name=3:root
 sgdisk /dev/"$device_name" --new=4:0:0    --typecode=4:8302 --change-name=4:home
 
 # Formatting
-mkfs.fat -F32 /dev/"$device_name$partition_prefix"1
+mkfs.fat -F32 /dev/"$partition_prefix"1
 mkswap /dev/"$partition_prefix"2; swapon /dev/"$partition_prefix"2
 mkfs.ext4 /dev/"$partition_prefix"3
 mkfs.ext4 /dev/"$partition_prefix"4
