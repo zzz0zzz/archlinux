@@ -6,7 +6,7 @@ test -f /install-part2.sh && sudo rm /install-part2.sh
 # Some more packages
 sudo pacman -S --noconfirm unzip dash checkbashisms bash-completion noto-fonts \
                            firefox epiphany gnome-keyring emacs gdb git jq rofi \
-                           texlive-most texlive-langextra
+                           texlive-most texlive-langextra alsa-utils
 
 # xorg
 sudo pacman -S --noconfirm xorg xorg-apps
