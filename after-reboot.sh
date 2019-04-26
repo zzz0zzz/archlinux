@@ -27,18 +27,18 @@ sudo pacman -S --noconfirm i3-gaps rxvt-unicode feh i3status
 mkdir -p .config/i3
 wget https://github.com/zzz0zzz/archlinux/raw/master/config/i3 --output-document .config/i3/config
 
-# David libre font (Assuming there is no /etc/X11/xorg.conf)
-wget https://github.com/meirsadan/david-libre/releases/download/v1.001/DavidLibre_TTF_v1.001.zip
-cd /usr/share/fonts
-sudo mkdir david-libre
-cd david-libre
-sudo mv ~/DavidLibre_TTF_v1.001.zip .
-sudo unzip DavidLibre_TTF_v1.001.zip
-sudo rm DavidLibre_TTF_v1.001.zip OFL.txt
-echo 'Section "Files"' | sudo tee /etc/X11/xorg.conf
-echo '  FontPath "/usr/share/fonts/david-libre"' | sudo tee -a /etc/X11/xorg.conf
-echo 'EndSection' | sudo tee -a /etc/X11/xorg.conf
-cd ~
+## David libre font (Assuming there is no /etc/X11/xorg.conf)
+#wget https://github.com/meirsadan/david-libre/releases/download/v1.001/DavidLibre_TTF_v1.001.zip
+#cd /usr/share/fonts
+#sudo mkdir david-libre
+#cd david-libre
+#sudo mv ~/DavidLibre_TTF_v1.001.zip .
+#sudo unzip DavidLibre_TTF_v1.001.zip
+#sudo rm DavidLibre_TTF_v1.001.zip OFL.txt
+#echo 'Section "Files"' | sudo tee /etc/X11/xorg.conf
+#echo '  FontPath "/usr/share/fonts/david-libre"' | sudo tee -a /etc/X11/xorg.conf
+#echo 'EndSection' | sudo tee -a /etc/X11/xorg.conf
+#cd ~
 
 # AUR packages
 # culmus
