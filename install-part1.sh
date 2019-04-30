@@ -35,9 +35,9 @@ pacman -Sy
 
 # Ranking best mirror
 pacman -S --noconfirm pacman-contrib
-curl -s "https://www.archlinux.org/mirrorlist/?country=IL&country=GR&protocol=https&use_mirror_status=on" \
+curl -s "https://www.archlinux.org/mirrorlist/?protocol=https&use_mirror_status=on" \
   | sed -e 's/^#Server/Server/' -e '/^#/d' \
-  | rankmirrors -n 3 - \
+  | rankmirrors -n 6 - \
   > /etc/pacman.d/mirrorlist
 
 # Installing the base packages
