@@ -4,13 +4,13 @@
 test -f /install-part2.sh && sudo rm /install-part2.sh
 
 # Some more packages
-# noto-fonts
 sudo pacman -S --noconfirm
   dash checkbashisms bash-completion  \
   firefox firefox-ublock-origin \
   gnome-keyring git jq unzip \
   rofi alsa-utils python-pipenv emacs gdb \
   texlive-most texlive-langextra
+# noto-fonts
 
 # xorg
 sudo pacman -S --noconfirm xorg xorg-apps
@@ -45,11 +45,11 @@ wget https://github.com/zzz0zzz/archlinux/raw/master/config/i3 --output-document
 
 # AUR packages
 # culmus
-#git clone https://aur.archlinux.org/culmus.git
-#cd culmus
-#makepkg -sirc --noconfirm
-#cd ..
-#sudo rm -r culmus
+git clone https://aur.archlinux.org/culmus.git
+cd culmus
+makepkg -sirc --noconfirm
+cd ..
+sudo rm -r culmus
 
 # Git configuration
 git config --global user.name zzz0zzz
