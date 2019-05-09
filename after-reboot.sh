@@ -4,11 +4,13 @@
 test -f /install-part2.sh && sudo rm /install-part2.sh
 
 # Some more packages
-# texlive-most texlive-langextra noto-fonts
-sudo pacman -S --noconfirm dash checkbashisms bash-completion  \
-                           firefox firefox-ublock-origin \
-                           gnome-keyring git jq unzip \
-                           rofi alsa-utils python-pipenv emacs gdb
+# noto-fonts
+sudo pacman -S --noconfirm
+  dash checkbashisms bash-completion  \
+  firefox firefox-ublock-origin \
+  gnome-keyring git jq unzip \
+  rofi alsa-utils python-pipenv emacs gdb \
+  texlive-most texlive-langextra
 
 # xorg
 sudo pacman -S --noconfirm xorg xorg-apps
