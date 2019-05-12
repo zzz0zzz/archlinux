@@ -52,7 +52,7 @@ cd ..
 sudo rm -r culmus
 
 # xkblayout-state
-https://aur.archlinux.org/xkblayout-state-git.git
+git clone https://aur.archlinux.org/xkblayout-state-git.git
 cd xkblayout-state-git
 makepkg -sirc --noconfirm
 cd ..
