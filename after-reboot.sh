@@ -13,20 +13,6 @@ sudo pacman -S --noconfirm
 install-aur-package culmus
 install-aur-package xkblayout-state-git
 
-# AUR package - culmus
-git clone https://aur.archlinux.org/culmus.git
-cd culmus
-makepkg -sirc --noconfirm
-cd ..
-sudo rm -r culmus
-
-# Aur package - xkblayout-state
-git clone https://aur.archlinux.org/xkblayout-state-git.git
-cd xkblayout-state-git
-makepkg -sirc --noconfirm
-cd ..
-sudo rm -r xkblayout-state-git
-
 # xorg
 sudo pacman -S --noconfirm xorg xorg-apps
 sudo pacman -S --noconfirm xf86-video-vmware xf86-video-fbdev xf86-video-intel
@@ -44,6 +30,7 @@ curl -s https://api.github.com/repos/zzz0zzz/archlinux/contents/config/Xresource
 sudo pacman -S --noconfirm i3-gaps rxvt-unicode feh i3blocks
 mkdir -p .config/i3
 wget https://github.com/zzz0zzz/archlinux/raw/master/config/i3 --output-document .config/i3/config
+wget https://github.com/zzz0zzz/archlinux/raw/master/config/i3blocks --output-document .config/i3blocks/config
 
 # Git configuration
 git config --global user.name zzz0zzz
