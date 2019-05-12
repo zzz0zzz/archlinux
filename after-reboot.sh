@@ -26,7 +26,7 @@ curl -s https://api.github.com/repos/zzz0zzz/archlinux/contents/config/Xresource
                              --directory-prefix=.Xresources.d'
 
 # i3
-sudo pacman -S --noconfirm i3-gaps rxvt-unicode feh i3status
+sudo pacman -S --noconfirm i3-gaps rxvt-unicode feh i3blocks
 mkdir -p .config/i3
 wget https://github.com/zzz0zzz/archlinux/raw/master/config/i3 --output-document .config/i3/config
 
