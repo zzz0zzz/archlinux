@@ -10,7 +10,22 @@ sudo pacman -S --noconfirm
   gnome-keyring git jq unzip \
   rofi alsa-utils python-pipenv emacs gdb \
   texlive-most texlive-langextra
-# noto-fonts
+install-aur-package culmus
+install-aur-package xkblayout-state-git
+
+# AUR package - culmus
+git clone https://aur.archlinux.org/culmus.git
+cd culmus
+makepkg -sirc --noconfirm
+cd ..
+sudo rm -r culmus
+
+# Aur package - xkblayout-state
+git clone https://aur.archlinux.org/xkblayout-state-git.git
+cd xkblayout-state-git
+makepkg -sirc --noconfirm
+cd ..
+sudo rm -r xkblayout-state-git
 
 # xorg
 sudo pacman -S --noconfirm xorg xorg-apps
@@ -29,34 +44,6 @@ curl -s https://api.github.com/repos/zzz0zzz/archlinux/contents/config/Xresource
 sudo pacman -S --noconfirm i3-gaps rxvt-unicode feh i3blocks
 mkdir -p .config/i3
 wget https://github.com/zzz0zzz/archlinux/raw/master/config/i3 --output-document .config/i3/config
-
-## David libre font (Assuming there is no /etc/X11/xorg.conf)
-#wget https://github.com/meirsadan/david-libre/releases/download/v1.001/DavidLibre_TTF_v1.001.zip
-#cd /usr/share/fonts
-#sudo mkdir david-libre
-#cd david-libre
-#sudo mv ~/DavidLibre_TTF_v1.001.zip .
-#sudo unzip DavidLibre_TTF_v1.001.zip
-#sudo rm DavidLibre_TTF_v1.001.zip OFL.txt
-#echo 'Section "Files"' | sudo tee /etc/X11/xorg.conf
-#echo '  FontPath "/usr/share/fonts/david-libre"' | sudo tee -a /etc/X11/xorg.conf
-#echo 'EndSection' | sudo tee -a /etc/X11/xorg.conf
-#cd ~
-
-# AUR packages
-# culmus
-git clone https://aur.archlinux.org/culmus.git
-cd culmus
-makepkg -sirc --noconfirm
-cd ..
-sudo rm -r culmus
-
-# xkblayout-state
-git clone https://aur.archlinux.org/xkblayout-state-git.git
-cd xkblayout-state-git
-makepkg -sirc --noconfirm
-cd ..
-sudo rm -r xkblayout-state-git
 
 # Git configuration
 git config --global user.name zzz0zzz
