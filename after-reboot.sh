@@ -51,6 +51,13 @@ makepkg -sirc --noconfirm
 cd ..
 sudo rm -r culmus
 
+# xkblayout-state
+https://aur.archlinux.org/xkblayout-state-git.git
+cd xkblayout-state-git
+makepkg -sirc --noconfirm
+cd ..
+sudo rm -r xkblayout-state-git
+
 # Git configuration
 git config --global user.name zzz0zzz
 git config --global user.email gurufor@yk20.com
