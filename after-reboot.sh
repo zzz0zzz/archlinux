@@ -11,7 +11,9 @@ sudo pacman -S --noconfirm
   rofi alsa-utils python-pipenv emacs gdb \
   texlive-most texlive-langextra
 install-aur-package culmus
+install-aur-package dropbox
 install-aur-package xkblayout-state-git
+
 
 # xorg
 sudo pacman -S --noconfirm xorg xorg-apps
