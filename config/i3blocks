@@ -1,5 +1,9 @@
 # i3blocks config file
 #
+###################################################
+# Lines starting with double # are commented by me.
+###################################################
+#
 # Please see man i3blocks for a complete reference!
 # The man page is also hosted at http://vivien.github.io/i3blocks
 #
@@ -33,6 +37,10 @@ markup=none
 # The first parameter sets the step (and units to display)
 # The second parameter overrides the mixer selection
 # See the script for details.
+[language]
+command=xkblayout-state print "%n"
+interval=1
+
 [volume]
 label=VOL
 #label=♪
@@ -45,15 +53,15 @@ signal=10
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory]
-label=MEM
-separator=false
-interval=30
+##label=MEM
+##separator=false
+##interval=30
 
 [memory]
-label=SWAP
-instance=swap
-separator=false
-interval=30
+##label=SWAP
+##instance=swap
+##separator=false
+##interval=30
 
 # Disk usage
 #
@@ -61,9 +69,9 @@ interval=30
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
 [disk]
-label=HOME
+##label=HOME
 #instance=/mnt/data
-interval=30
+##interval=30
 
 # Network interface monitoring
 #
@@ -109,7 +117,7 @@ interval=30
 # Date Time
 #
 [time]
-command=date '+%Y-%m-%d %H:%M:%S'
+command=date '+%a %H:%M %Y-%m-%d'
 interval=5
 
 # Generic media player support
