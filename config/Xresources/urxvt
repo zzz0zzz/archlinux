@@ -1,3 +1,4 @@
+URxvt.font: xft:monospace:size=11
 URxvt.letterSpace: -1
-URxvt.background:#1c1c1c
-URxvt.foreground:#DEDEDE
+URxvt.background: #1c1c1c
+URxvt.foreground: #DEDEDE
