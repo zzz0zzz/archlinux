@@ -4,12 +4,12 @@
 test -f /install-part2.sh && sudo rm /install-part2.sh
 
 # Some more packages
+# texlive-most texlive-langextra
 sudo pacman -S --noconfirm \
   dash checkbashisms bash-completion  \
   firefox firefox-ublock-origin \
   gnome-keyring git jq unzip \
-  rofi alsa-utils python-pipenv emacs gdb \
-  texlive-most texlive-langextra
+  rofi alsa-utils python-pipenv emacs gdb
 install-aur-package culmus
 install-aur-package dropbox
 install-aur-package xkblayout-state-git
