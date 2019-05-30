@@ -8,7 +8,7 @@ test -f /install-part2.sh && sudo rm /install-part2.sh
 sudo pacman -S --noconfirm \
   dash checkbashisms bash-completion  \
   firefox firefox-ublock-origin \
-  gnome-keyring git jq unzip \
+  gnome-keyring git jq unzip sqlite \
   rofi alsa-utils python-pipenv emacs gdb
 install-aur-package culmus
 gpg --receive-keys FC918B335044912E # for dropbox
