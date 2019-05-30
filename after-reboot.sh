@@ -4,7 +4,7 @@
 test -f /install-part2.sh && sudo rm /install-part2.sh
 
 # Some more packages
-sudo pacman -S --noconfirm
+sudo pacman -S --noconfirm \
   dash checkbashisms bash-completion  \
   firefox firefox-ublock-origin \
   gnome-keyring git jq unzip \
