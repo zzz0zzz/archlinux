@@ -9,7 +9,8 @@ sudo pacman -S --noconfirm \
   dash checkbashisms bash-completion  \
   firefox firefox-ublock-origin \
   gnome-keyring git jq unzip \
-  rofi alsa-utils python-pipenv emacs gdb
+  rofi alsa-utils python-pipenv emacs gdb \
+  xdotool
 install-aur-package culmus
 gpg --receive-keys FC918B335044912E # for dropbox
 install-aur-package dropbox
