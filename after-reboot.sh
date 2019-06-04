@@ -44,3 +44,6 @@ git config --global user.name zzz0zzz
 git config --global user.email gurufor@yk20.com
 git config --global core.editor emacs
 git config --global credential.helper store
+
+rm after-reboot.sh
+rm install-aur-package.sh
