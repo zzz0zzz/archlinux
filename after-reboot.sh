@@ -17,8 +17,8 @@ sudo pacman -S --noconfirm \
   rofi alsa-utils python-pipenv emacs gdb \
   xdotool inotify-tools
 gpg --receive-keys FC918B335044912E # for dropbox
-./install-aur-package dropbox
-./install-aur-package xkblayout-state-git
+./install-aur-package.sh dropbox
+./install-aur-package.sh xkblayout-state-git
 
 # xorg
 sudo pacman -S --noconfirm xorg xorg-apps
