@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# Getting install-aur-package
 wget https://github.com/zzz0zzz/archlinux/raw/master/install-aur-package.sh
 chmod +x install-aur-package.sh
 
@@ -45,5 +46,6 @@ git config --global user.email gurufor@yk20.com
 git config --global core.editor emacs
 git config --global credential.helper store
 
+# Cleaning
 rm after-reboot.sh
 rm install-aur-package.sh
