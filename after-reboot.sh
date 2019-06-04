@@ -1,21 +1,23 @@
 #!/bin/sh
 
+wget https://github.com/zzz0zzz/archlinux/raw/master/install-aur-package.sh
+chmod +x install-aur-package.sh
+
 # Deleting part 2 of install if exists
 test -f /install-part2.sh && sudo rm /install-part2.sh
 
 # Some more packages
 # texlive-most texlive-langextra
+# install-aur-package culmus
 sudo pacman -S --noconfirm \
   dash checkbashisms bash-completion  \
   firefox firefox-ublock-origin \
   gnome-keyring git jq unzip \
   rofi alsa-utils python-pipenv emacs gdb \
   xdotool inotify-tools
-install-aur-package culmus
 gpg --receive-keys FC918B335044912E # for dropbox
-install-aur-package dropbox
-install-aur-package xkblayout-state-git
-
+./install-aur-package dropbox
+./install-aur-package xkblayout-state-git
 
 # xorg
 sudo pacman -S --noconfirm xorg xorg-apps
