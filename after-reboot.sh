@@ -15,7 +15,7 @@ sudo pacman -S --noconfirm \
   firefox firefox-ublock-origin \
   gnome-keyring git jq unzip \
   rofi alsa-utils python-pipenv emacs gdb \
-  xdotool inotify-tools
+  xdotool inotify-tools imagemagick
 gpg --receive-keys FC918B335044912E # for dropbox
 ./install-aur-package.sh dropbox
 ./install-aur-package.sh xkblayout-state-git
