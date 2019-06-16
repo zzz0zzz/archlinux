@@ -40,6 +40,9 @@ mkdir -p .config/i3blocks
 wget https://github.com/zzz0zzz/archlinux/raw/master/config/i3 --output-document .config/i3/config
 wget https://github.com/zzz0zzz/archlinux/raw/master/config/i3blocks --output-document .config/i3blocks/config
 
+# emacs
+wget https://github.com/zzz0zzz/archlinux/raw/master/config/emacs --output-document .emacs
+
 # Git configuration
 git config --global user.name zzz0zzz
 git config --global user.email gurufor@yk20.com
