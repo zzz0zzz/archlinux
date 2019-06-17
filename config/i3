@@ -185,4 +185,6 @@ bar {
         status_command i3blocks
 }
 
+exec systemctl start nginx
+exec systemctl start mariadb
 exec_always --no-startup-id setxkbmap -layout us,il -option grp:lctrl_lshift_toggle -option grp_led:scroll
