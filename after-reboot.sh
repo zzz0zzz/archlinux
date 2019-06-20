@@ -63,9 +63,13 @@ mysql --user=root <<_EOF_
 _EOF_
 
 # wordpress
-sudo wget https://wordpress.org/latest.tar.gz --directory-prefix=/etc/nginx/html
-sudo tar xvzf /etc/nginx/html/latest.tar.gz --directory=/etc/nginx/html
-sudo rm /etc/nginx/html/latest.tar.gz
+cd /srv/http/whatever
+wget https://wordpress.org/latest.tar.gz
+tar xvzf latest.tar.gz
+
+sudo wget https://wordpress.org/latest.tar.gz --directory-prefix=/srv/httpd
+sudo tar xvzf /srv/httpd/latest.tar.gz --directory=/srv/httpd
+sudo rm /srv/httpd/latest.tar.gz
 
 # Git configuration
 git config --global user.name zzz0zzz
