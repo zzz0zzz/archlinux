@@ -16,7 +16,7 @@ sudo pacman -S --noconfirm \
   gnome-keyring git jq unzip \
   rofi alsa-utils python-pipenv emacs gdb \
   xdotool inotify-tools imagemagick ghostscript \
-  nginx-mainline php php-fpm mariadb
+  nginx-mainline php mariadb
 gpg --receive-keys FC918B335044912E # for dropbox
 ./install-aur-package.sh dropbox
 ./install-aur-package.sh xkblayout-state-git
