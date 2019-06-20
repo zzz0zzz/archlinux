@@ -44,8 +44,9 @@ wget https://github.com/zzz0zzz/archlinux/raw/master/config/i3blocks --output-do
 # emacs
 wget https://github.com/zzz0zzz/archlinux/raw/master/config/emacs --output-document .emacs
 
-# before starting the mariadb.service
+# mariadb
 sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+sudo systemctl enable mariadb.service
 
 # Git configuration
 git config --global user.name zzz0zzz
