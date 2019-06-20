@@ -62,6 +62,10 @@ mysql --user=root <<_EOF_
   FLUSH PRIVILEGES;
 _EOF_
 
+# wordpress
+sudo wget https://wordpress.org/latest.tar.gz --directory-prefix=/etc/nginx/html
+sudo tar xvzf /etc/nginx/html/latest.tar.gz --directory=/etc/nginx/html
+sudo rm /etc/nginx/html/latest.tar.gz
 
 # Git configuration
 git config --global user.name zzz0zzz
