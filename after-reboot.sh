@@ -47,7 +47,7 @@ wget https://github.com/zzz0zzz/archlinux/raw/master/config/emacs --output-docum
 # mariadb
 sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 sudo systemctl enable mariadb.service
-# 
+# emulating mysql_secure_installation
 mysql --user=root <<_EOF_
   UPDATE mysql.user SET Password=PASSWORD('') WHERE User='root';
   DELETE FROM mysql.user WHERE User='';
