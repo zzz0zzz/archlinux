@@ -16,7 +16,7 @@ sudo pacman -S --noconfirm \
   gnome-keyring git jq unzip \
   rofi alsa-utils python-pipenv emacs gdb \
   xdotool inotify-tools imagemagick ghostscript \
-  nginx-mainline php mariadb
+  apache php mariadb
 gpg --receive-keys FC918B335044912E # for dropbox
 ./install-aur-package.sh dropbox
 ./install-aur-package.sh xkblayout-state-git
@@ -46,9 +46,6 @@ wget https://github.com/zzz0zzz/archlinux/raw/master/config/emacs --output-docum
 
 # apache
 
-# nginx
-#sudo systemctl enable nginx.service
-#sudo systemctl start nginx.service
 
 # mariadb
 sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
