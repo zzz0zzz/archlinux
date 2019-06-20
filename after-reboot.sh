@@ -45,7 +45,8 @@ wget https://github.com/zzz0zzz/archlinux/raw/master/config/i3blocks --output-do
 wget https://github.com/zzz0zzz/archlinux/raw/master/config/emacs --output-document .emacs
 
 # nginx
-sudo systemctl enable mariadb.service
+sudo systemctl enable nginx.service
+sudo systemctl start nginx.service
 
 # mariadb
 sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
