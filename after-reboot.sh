@@ -52,6 +52,8 @@ sed "s/;date.timezone.*/date.timezone = Asia\/Jerusalem/" /etc/php/php.ini
 
 # Apache.
 sudo pacman -S apache --noconfirm
+# Uncommenting 
+sudo sed -e '/.*unique_id_module.*/s/^#//' -i /etc/httpd/conf/httpd.conf
 # Php extension.
 sudo pacman -S php-apache --noconfirm
 #   Replacing mod_mpm_event by mod_mpm_prefork. Commenting mod_mpm_event and uncommenting mod_mpm_prefork.
