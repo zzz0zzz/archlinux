@@ -79,6 +79,7 @@ mysql --user=root <<_EOF_
   DROP DATABASE IF EXISTS test;
   DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
   FLUSH PRIVILEGES;
+  EXIT
 _EOF_
 sudo systemctl stop mariadb.service
 
@@ -91,6 +92,7 @@ mysql --user=root <<_EOF_
   CREATE DATABASE wordpress;
   GRANT ALL PRIVILEGES ON wordpress.* TO 'amir'@'localhost' IDENTIFIED BY '';
   FLUSH PRIVILEGES;
+  EXIT
 _EOF_  
 
 
