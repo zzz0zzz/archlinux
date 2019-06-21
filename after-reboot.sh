@@ -54,6 +54,10 @@ sudo systemctl start httpd.service
 sudo sed -e '/.*mod_mpm_event.*/s/^/#/' -i /etc/httpd/conf/httpd.conf
 # uncommenting mod_mpm_prefork
 sudo sed -e '/.*mod_mpm_prefork.*/s/^#//' -i /etc/httpd/conf/httpd.conf
+# appending 
+sudo sed -i "$(sed -n '/LoadModule/ =' /etc/httpd/conf/httpd.conf | tail -n 1)"'a LoadModule php7_module modules\/libphp7.so' /etc/httpd/conf/httpd.conf
+
+
 
 # mariadb
 sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
