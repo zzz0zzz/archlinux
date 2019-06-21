@@ -82,16 +82,25 @@ mysql --user=root <<_EOF_
 _EOF_
 sudo systemctl stop mariadb.service
 
+
 # wordpress
 sudo wget https://wordpress.org/latest.tar.gz --directory-prefix=/srv/httpd
 sudo tar xvzf /srv/httpd/latest.tar.gz --directory=/srv/httpd
 sudo rm /srv/httpd/latest.tar.gz
+mysql --user=root <<_EOF_
+  CREATE DATABASE wordpress;
+  GRANT ALL PRIVILEGES ON wordpress.* TO 'amir'@'localhost' IDENTIFIED BY '';
+  FLUSH PRIVILEGES;
+_EOF_  
+
 
 # Git configuration
 git config --global user.name zzz0zzz
 git config --global user.email gurufor@yk20.com
 git config --global core.editor emacs
 git config --global credential.helper store
+
+
 
 # Cleaning
 rm after-reboot.sh
