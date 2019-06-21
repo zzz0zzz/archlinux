@@ -14,9 +14,8 @@ sudo pacman -S --noconfirm \
   dash checkbashisms bash-completion  \
   firefox firefox-ublock-origin \
   gnome-keyring git jq unzip \
-  rofi alsa-utils python-pipenv emacs gdb \
-  xdotool inotify-tools imagemagick ghostscript \
-  php apache php-apache mariadb
+  rofi alsa-utils python-pipenv  gdb \
+  xdotool inotify-tools imagemagick ghostscript mariadb
 gpg --receive-keys FC918B335044912E # for dropbox
 ./install-aur-package.sh dropbox
 ./install-aur-package.sh xkblayout-state-git
@@ -41,19 +40,25 @@ mkdir -p .config/i3blocks
 wget https://github.com/zzz0zzz/archlinux/raw/master/config/i3 --output-document .config/i3/config
 wget https://github.com/zzz0zzz/archlinux/raw/master/config/i3blocks --output-document .config/i3blocks/config
 
-# emacs
+# Emacs.
+sudo pacman -S emacs --noconfirm
+#  Get config file.
 wget https://github.com/zzz0zzz/archlinux/raw/master/config/emacs --output-document .emacs
 
-# php
+# Php.
+sudo pacman -S php --noconfirm
+#  Set timezone.
 sed "s/;date.timezone.*/date.timezone = Asia\/Jerusalem/" /etc/php/php.ini
 
-# apache
+# Apache.
+sudo pacman -S apache --noconfirm
 sudo systemctl enable httpd.service
-sudo systemctl start httpd.service
-# Replacing mod_mpm_event by mod_mpm_prefork. Commenting mod_mpm_event and uncommenting mod_mpm_prefork.
+#   Php extension.
+sudo pacman -S php-apache --noconfirm
+#     Replacing mod_mpm_event by mod_mpm_prefork. Commenting mod_mpm_event and uncommenting mod_mpm_prefork.
 sudo sed -e '/.*mod_mpm_event.*/s/^/#/' -i /etc/httpd/conf/httpd.conf
 sudo sed -e '/.*mod_mpm_prefork.*/s/^#//' -i /etc/httpd/conf/httpd.conf
-# Enabling php. Placing 'LoadModule php7_module modules\/libphp7.so' and 'AddHandler php7-script .php' at the end of the LoadModule list.
+#     Enabling php. Placing 'LoadModule php7_module modules\/libphp7.so' and 'AddHandler php7-script .php' at the end of the LoadModule list.
 sudo sed -i "$(sed -n '/LoadModule/ =' /etc/httpd/conf/httpd.conf | tail -n 1)"'a LoadModule php7_module modules\/libphp7.so\nAddHandler php7-script .php' /etc/httpd/conf/httpd.conf
 
 
