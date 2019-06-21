@@ -50,6 +50,10 @@ sed "s/;date.timezone.*/date.timezone = Asia\/Jerusalem/" /etc/php/php.ini
 # apache
 sudo systemctl enable httpd.service
 sudo systemctl start httpd.service
+# commenting mod_mpm_event
+sudo sed -e '/.*mod_mpm_event.*/s/^/;/' -i /etc/httpd/conf/httpd.conf
+# uncommenting mod_mpm_prefork
+sudo sed -e '/.*mod_mpm_prefork.*/s/^;//' -i /etc/httpd/conf/httpd.conf
 
 # mariadb
 sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
