@@ -81,9 +81,9 @@ _EOF_
 sudo systemctl stop mariadb.service
 
 # wordpress
-sudo wget https://wordpress.org/latest.tar.gz --directory-prefix=/srv/http
-sudo tar xvzf /srv/httpd/latest.tar.gz --directory=/srv/http
-sudo rm /srv/http/latest.tar.gz
+sudo wget https://wordpress.org/latest.tar.gz --directory-prefix=/srv/httpd
+sudo tar xvzf /srv/httpd/latest.tar.gz --directory=/srv/httpd
+sudo rm /srv/httpd/latest.tar.gz
 
 # Git configuration
 git config --global user.name zzz0zzz
