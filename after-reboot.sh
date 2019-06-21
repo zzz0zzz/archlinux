@@ -50,11 +50,10 @@ sed "s/;date.timezone.*/date.timezone = Asia\/Jerusalem/" /etc/php/php.ini
 # apache
 sudo systemctl enable httpd.service
 sudo systemctl start httpd.service
-# commenting mod_mpm_event
+# Replacing mod_mpm_event by mod_mpm_prefork. Commenting mod_mpm_event and uncommenting mod_mpm_prefork.
 sudo sed -e '/.*mod_mpm_event.*/s/^/#/' -i /etc/httpd/conf/httpd.conf
-# uncommenting mod_mpm_prefork
 sudo sed -e '/.*mod_mpm_prefork.*/s/^#//' -i /etc/httpd/conf/httpd.conf
-# enabling php. appending 'LoadModule php7_module modules\/libphp7.so' and 'AddHandler php7-script .php' to the list of LoadModule lines
+# Enabling php. Placing 'LoadModule php7_module modules\/libphp7.so' and 'AddHandler php7-script .php' at the end of the LoadModule list.
 sudo sed -i "$(sed -n '/LoadModule/ =' /etc/httpd/conf/httpd.conf | tail -n 1)"'a LoadModule php7_module modules\/libphp7.so\nAddHandler php7-script .php' /etc/httpd/conf/httpd.conf
 
 
