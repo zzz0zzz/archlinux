@@ -11,9 +11,9 @@ test -f /install-part2.sh && sudo rm /install-part2.sh
 # texlive-most texlive-langextra
 # install-aur-package culmus
 sudo pacman -S --noconfirm \
-  dash checkbashisms bash-completion  \
   firefox firefox-ublock-origin \
   gnome-keyring git jq unzip \
+  dash checkbashisms bash-completion \
   rofi alsa-utils python-pipenv  gdb \
   xdotool inotify-tools imagemagick ghostscript
 gpg --receive-keys FC918B335044912E # for dropbox
@@ -79,16 +79,19 @@ mysql --user=root <<_EOF_
   DROP DATABASE IF EXISTS test;
   DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
   FLUSH PRIVILEGES;
-  EXIT
+  EXIT;
 _EOF_
 sudo systemctl stop mariadb.service
 
 
-# wordpress
+# Wordpress
+# Downloading
 sudo wget https://wordpress.org/latest.tar.gz --directory-prefix=/srv/httpd
 sudo tar xvzf /srv/httpd/latest.tar.gz --directory=/srv/httpd
 sudo rm /srv/httpd/latest.tar.gz
+# Changing wordpress directory ownership
 chown -R root:http /srv/http/wordpress
+# Creating a configuration file
 sudo cp /srv/httpd/wordpress/wp-config-sample.php /srv/httpd/wordpress/wp-config.php
 sudo sed -i 's/database_name_here/wordpress/' /srv/http/wordpress/wp-config.php
 sudo sed -i 's/username_here/amir/' /srv/http/wordpress/wp-config.php
@@ -96,9 +99,9 @@ sudo sed -i 's/password_here//' /srv/http/wordpress/wp-config.php
 
 mysql --user=root <<_EOF_
   CREATE DATABASE wordpress;
-  GRANT ALL PRIVILEGES ON wordpress.* TO 'amir'@'localhost' IDENTIFIED BY '';
+  GRANT ALL PRIVILEGES ON wordpress.* TO "amir"@"localhost" IDENTIFIED BY "";
   FLUSH PRIVILEGES;
-  EXIT
+  EXIT;
 _EOF_  
 
 
