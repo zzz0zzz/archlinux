@@ -60,6 +60,10 @@ sudo sed -e '/.*mod_mpm_event.*/s/^/#/' -i /etc/httpd/conf/httpd.conf
 sudo sed -e '/.*mod_mpm_prefork.*/s/^#//' -i /etc/httpd/conf/httpd.conf
 #     Enabling php. Placing 'LoadModule php7_module modules\/libphp7.so' and 'AddHandler php7-script .php' at the end of the LoadModule list.
 sudo sed -i "$(sed -n '/LoadModule/ =' /etc/httpd/conf/httpd.conf | tail -n 1)"'a LoadModule php7_module modules\/libphp7.so\nAddHandler php7-script .php' /etc/httpd/conf/httpd.conf
+#     Placing 'Include conf/extra/php7_module.conf' at the end of the Include list (just before 'Configure mod_proxy_html').
+sudo sed -i '/^# Configure mod_proxy_html.*/i # Php\nInclude conf\/extra\/php7_module.conf\n' /etc/httpd/conf/httpd.conf
+
+
 
 
 
