@@ -73,6 +73,7 @@ sudo systemctl enable mariadb.service
 sudo systemctl start mariadb.service
 # emulating mysql_secure_installation
 mysql --user=root <<_EOF_
+  CREATE USER 'amir'@'localhost' IDENTIFIED BY '';
   UPDATE mysql.user SET Password=PASSWORD('') WHERE User='root';
   DELETE FROM mysql.user WHERE User='';
   DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
@@ -99,7 +100,7 @@ sudo sed -i 's/password_here//' /srv/http/wordpress/wp-config.php
 sudo systemctl start mariadb.service
 mysql --user=root <<_EOF_
   CREATE DATABASE wordpress;
-  GRANT ALL PRIVILEGES ON wordpress.* TO 'amir@localhost' IDENTIFIED BY '';
+  GRANT ALL PRIVILEGES ON wordpress.* TO 'amir\'@\'localhost' IDENTIFIED BY '';
   FLUSH PRIVILEGES;
 _EOF_  
 sudo systemctl stop mariadb.service
