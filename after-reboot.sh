@@ -54,8 +54,8 @@ sudo systemctl start httpd.service
 sudo sed -e '/.*mod_mpm_event.*/s/^/#/' -i /etc/httpd/conf/httpd.conf
 # uncommenting mod_mpm_prefork
 sudo sed -e '/.*mod_mpm_prefork.*/s/^#//' -i /etc/httpd/conf/httpd.conf
-# appending 
-sudo sed -i "$(sed -n '/LoadModule/ =' /etc/httpd/conf/httpd.conf | tail -n 1)"'a LoadModule php7_module modules\/libphp7.so' /etc/httpd/conf/httpd.conf
+# enabling php. appending 'LoadModule php7_module modules\/libphp7.so' and 'AddHandler php7-script .php' to the list of LoadModule lines
+sudo sed -i "$(sed -n '/LoadModule/ =' /etc/httpd/conf/httpd.conf | tail -n 1)"'a LoadModule php7_module modules\/libphp7.so\nAddHandler php7-script .php' /etc/httpd/conf/httpd.conf
 
 
 
