@@ -16,7 +16,7 @@ sudo pacman -S --noconfirm \
   gnome-keyring git jq unzip \
   rofi alsa-utils python-pipenv emacs gdb \
   xdotool inotify-tools imagemagick ghostscript \
-  apache php mariadb
+  php apache php-apache mariadb
 gpg --receive-keys FC918B335044912E # for dropbox
 ./install-aur-package.sh dropbox
 ./install-aur-package.sh xkblayout-state-git
@@ -43,6 +43,8 @@ wget https://github.com/zzz0zzz/archlinux/raw/master/config/i3blocks --output-do
 
 # emacs
 wget https://github.com/zzz0zzz/archlinux/raw/master/config/emacs --output-document .emacs
+
+# php
 
 # apache
 sudo systemctl enable httpd.service
