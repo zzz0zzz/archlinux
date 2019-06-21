@@ -100,7 +100,7 @@ sudo systemctl start mariadb.service
 mysql --user=root <<_EOF_
   CREATE DATABASE wordpress;
   GRANT ALL PRIVILEGES ON wordpress.* TO 'amir@localhost' IDENTIFIED BY '';
-  FLUSH PRIVILEGES;mysql --user=root <<_EOF_
+  FLUSH PRIVILEGES;
 _EOF_  
 sudo systemctl stop mariadb.service
 
