@@ -42,26 +42,27 @@ wget https://github.com/zzz0zzz/archlinux/raw/master/config/i3blocks --output-do
 
 # Emacs.
 sudo pacman -S emacs --noconfirm
-#  Get config file.
+# Get config file.
 wget https://github.com/zzz0zzz/archlinux/raw/master/config/emacs --output-document .emacs
 
 # Php.
 sudo pacman -S php --noconfirm
-#  Set timezone.
+# Set timezone.
 sed "s/;date.timezone.*/date.timezone = Asia\/Jerusalem/" /etc/php/php.ini
 
 # Apache.
 sudo pacman -S apache --noconfirm
-sudo systemctl enable httpd.service
-#   Php extension.
+# Php extension.
 sudo pacman -S php-apache --noconfirm
-#     Replacing mod_mpm_event by mod_mpm_prefork. Commenting mod_mpm_event and uncommenting mod_mpm_prefork.
+#   Replacing mod_mpm_event by mod_mpm_prefork. Commenting mod_mpm_event and uncommenting mod_mpm_prefork.
 sudo sed -e '/.*mod_mpm_event.*/s/^/#/' -i /etc/httpd/conf/httpd.conf
 sudo sed -e '/.*mod_mpm_prefork.*/s/^#//' -i /etc/httpd/conf/httpd.conf
-#     Enabling php. Placing 'LoadModule php7_module modules\/libphp7.so' and 'AddHandler php7-script .php' at the end of the LoadModule list.
+#   Enabling php. Placing 'LoadModule php7_module modules\/libphp7.so' and 'AddHandler php7-script .php' at the end of the LoadModule list.
 sudo sed -i "$(sed -n '/LoadModule/ =' /etc/httpd/conf/httpd.conf | tail -n 1)"'a LoadModule php7_module modules\/libphp7.so\nAddHandler php7-script .php' /etc/httpd/conf/httpd.conf
-#     Placing 'Include conf/extra/php7_module.conf' at the end of the Include list (just before 'Configure mod_proxy_html').
+#   Placing 'Include conf/extra/php7_module.conf' at the end of the Include list (just before 'Configure mod_proxy_html').
 sudo sed -i '/^# Configure mod_proxy_html.*/i # Php extension\nInclude conf\/extra\/php7_module.conf\n' /etc/httpd/conf/httpd.conf
+# Enabling apache service
+sudo systemctl enable httpd.service
 
 # mariadb
 sudo pacman -S mariadb --noconfirm
