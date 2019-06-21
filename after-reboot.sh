@@ -65,6 +65,8 @@ sudo sed -i "$(sed -n '/LoadModule/ =' /etc/httpd/conf/httpd.conf | tail -n 1)"'
 sudo sed -i '/^# Configure mod_proxy_html.*/i # Php extension\nInclude conf\/extra\/php7_module.conf\n' /etc/httpd/conf/httpd.conf
 # Enabling apache service
 sudo systemctl enable httpd.service
+# Uncomenting ;extension=mysqli.so in php configuration
+sudo sed -i 's/;extension=mysqli/extension=mysqli/' /etc/php/php.ini
 
 # mariadb
 sudo pacman -S mariadb --noconfirm
@@ -100,7 +102,7 @@ sudo sed -i 's/password_here//' /srv/http/wordpress/wp-config.php
 sudo systemctl start mariadb.service
 mysql --user=root <<_EOF_
   CREATE DATABASE wordpress;
-  GRANT ALL PRIVILEGES ON wordpress.* TO 'amir\'@\'localhost' IDENTIFIED BY '';
+  GRANT ALL PRIVILEGES ON wordpress.* TO 'amir'@'localhost' IDENTIFIED BY '';
   FLUSH PRIVILEGES;
 _EOF_  
 sudo systemctl stop mariadb.service
