@@ -15,7 +15,7 @@ sudo pacman -S --noconfirm \
   firefox firefox-ublock-origin \
   gnome-keyring git jq unzip \
   rofi alsa-utils python-pipenv  gdb \
-  xdotool inotify-tools imagemagick ghostscript mariadb
+  xdotool inotify-tools imagemagick ghostscript
 gpg --receive-keys FC918B335044912E # for dropbox
 ./install-aur-package.sh dropbox
 ./install-aur-package.sh xkblayout-state-git
@@ -63,11 +63,8 @@ sudo sed -i "$(sed -n '/LoadModule/ =' /etc/httpd/conf/httpd.conf | tail -n 1)"'
 #     Placing 'Include conf/extra/php7_module.conf' at the end of the Include list (just before 'Configure mod_proxy_html').
 sudo sed -i '/^# Configure mod_proxy_html.*/i # Php extension\nInclude conf\/extra\/php7_module.conf\n' /etc/httpd/conf/httpd.conf
 
-
-
-
-
 # mariadb
+sudo pacman -S mariadb --noconfirm
 sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 sudo systemctl enable mariadb.service
 sudo systemctl start mariadb.service
@@ -80,6 +77,7 @@ mysql --user=root <<_EOF_
   DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
   FLUSH PRIVILEGES;
 _EOF_
+sudo systemctl stop mariadb.service
 
 # wordpress
 cd /srv/http/whatever
