@@ -45,6 +45,7 @@ wget https://github.com/zzz0zzz/archlinux/raw/master/config/i3blocks --output-do
 wget https://github.com/zzz0zzz/archlinux/raw/master/config/emacs --output-document .emacs
 
 # php
+sed "s/;date.timezone.*/date.timezone = Asia\/Jerusalem/" /etc/php/php.ini
 
 # apache
 sudo systemctl enable httpd.service
