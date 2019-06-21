@@ -88,6 +88,12 @@ sudo systemctl stop mariadb.service
 sudo wget https://wordpress.org/latest.tar.gz --directory-prefix=/srv/httpd
 sudo tar xvzf /srv/httpd/latest.tar.gz --directory=/srv/httpd
 sudo rm /srv/httpd/latest.tar.gz
+chown -R root:http /srv/http/wordpress
+sudo cp /srv/httpd/wordpress/wp-config-sample.php /srv/httpd/wordpress/wp-config.php
+sudo sed -i 's/database_name_here/wordpress/' /srv/http/wordpress/wp-config.php
+sudo sed -i 's/username_here/amir/' /srv/http/wordpress/wp-config.php
+sudo sed -i 's/password_here//' /srv/http/wordpress/wp-config.php
+
 mysql --user=root <<_EOF_
   CREATE DATABASE wordpress;
   GRANT ALL PRIVILEGES ON wordpress.* TO 'amir'@'localhost' IDENTIFIED BY '';
