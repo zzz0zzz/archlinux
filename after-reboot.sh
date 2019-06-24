@@ -45,6 +45,18 @@ sudo pacman -S emacs --noconfirm
 # Get config file.
 wget https://github.com/zzz0zzz/archlinux/raw/master/config/emacs --output-document .emacs
 
+# Git configuration
+git config --global user.name zzz0zzz
+git config --global user.email gurufor@yk20.com
+git config --global core.editor emacs
+git config --global credential.helper store
+
+# Cleaning
+rm after-reboot.sh
+rm install-aur-package.sh
+
+exit
+
 # Php.
 sudo pacman -S php --noconfirm
 # Set timezone.
@@ -85,7 +97,6 @@ mysql --user=root <<_EOF_
 _EOF_
 sudo systemctl stop mariadb.service
 
-
 # Wordpress
 # Downloading
 sudo wget https://wordpress.org/latest.tar.gz --directory-prefix=/srv/httpd
@@ -106,15 +117,3 @@ mysql --user=root <<_EOF_
   FLUSH PRIVILEGES;
 _EOF_  
 sudo systemctl stop mariadb.service
-
-# Git configuration
-git config --global user.name zzz0zzz
-git config --global user.email gurufor@yk20.com
-git config --global core.editor emacs
-git config --global credential.helper store
-
-
-
-# Cleaning
-rm after-reboot.sh
-rm install-aur-package.sh
