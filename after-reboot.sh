@@ -14,7 +14,7 @@ sudo pacman -S --noconfirm \
   firefox firefox-ublock-origin \
   gnome-keyring git jq unzip \
   dash checkbashisms bash-completion \
-  rofi alsa-utils python-pipenv  gdb \
+  rofi alsa-utils python-pipenv gdb \
   xdotool inotify-tools imagemagick ghostscript
 gpg --receive-keys FC918B335044912E # for dropbox
 ./install-aur-package.sh dropbox
@@ -50,6 +50,12 @@ git config --global user.name zzz0zzz
 git config --global user.email gurufor@yk20.com
 git config --global core.editor emacs
 git config --global credential.helper store
+
+# Downloading repositories
+mkdir github
+cd github
+git clone https://github.com/zzz0zzz/archlinux.git
+git clone https://github.com/zzz0zzz/archlinux.git
 
 # Cleaning
 rm after-reboot.sh
