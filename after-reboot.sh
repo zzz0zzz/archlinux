@@ -63,7 +63,7 @@ function download_repository() {
 wget -q -O - https://api.github.com/users/zzz0zzz/repos \
   | jq '.[] | { (.name): .html_url }' \
   | jq -s add | jq -r '.[]'
-  | xargs -n 1
+  | xargs -n 1 -I % download_repository(%)
 
 
 mkdir -p Github/archlinux
