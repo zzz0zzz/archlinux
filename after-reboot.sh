@@ -55,7 +55,9 @@ git config --global credential.helper store
 rm after-reboot.sh
 rm install-aur-package.sh
 
-exit  # END OF SCRIPT
+#######################
+exit  # END OF SCRIPT #
+#######################
 
 # Php.
 sudo pacman -S php --noconfirm
