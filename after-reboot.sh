@@ -51,19 +51,39 @@ git config --global user.email gurufor@yk20.com
 git config --global core.editor emacs
 git config --global credential.helper store
 
-# Downloading repositories
-mkdir github
-cd github
-git clone https://github.com/zzz0zzz/archlinux.git
-git clone https://github.com/zzz0zzz/archlinux.git
+function download_repository() {
+  repository_name=$((jq 'keys[0]' "$1"))
+  repository_url=$((jq '.[]))
+  
+  echo $repository_name
+  echo $repository_url
+}
+
+# Downloading all repositories
+wget -q -O - https://api.github.com/users/zzz0zzz/repos \
+  | jq '.[] | { (.name): .html_url }' \
+  | jq -s add | jq -r '.[]'
+  | xargs -n 1
+
+
+mkdir -p Github/archlinux
+git clone https://github.com/zzz0zzz/csapp-3e.git Github
+git clone https://github.com/zzz0zzz/archlinux.git Github
+
 
 # Cleaning
 rm after-reboot.sh
 rm install-aur-package.sh
 
+
+
+
 #######################
-exit  # END OF SCRIPT #
+exit  # END OF SCRIPT 
 #######################
+
+
+
 
 # Php.
 sudo pacman -S php --noconfirm
