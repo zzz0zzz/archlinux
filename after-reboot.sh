@@ -60,16 +60,12 @@ function download_repository() {
 }
 
 # Downloading all repositories
-wget -q -O - https://api.github.com/users/zzz0zzz/repos \
-  | jq '.[] | { (.name): .html_url }' \
-  | jq -s add | jq -r '.[]'
-  | xargs -n 1 -I % download_repository(%)
-
-
-mkdir -p Github/archlinux
-git clone https://github.com/zzz0zzz/csapp-3e.git Github
-git clone https://github.com/zzz0zzz/archlinux.git Github
-
+mkdir Github
+cd Github
+wget -q -O - https://api.github.com/users/zzz0zzz/repos 
+  | jq '.[] | { (.name): .html_url } | .[]'
+  | xargs -n 1 git clone
+cd ..
 
 # Cleaning
 rm after-reboot.sh
