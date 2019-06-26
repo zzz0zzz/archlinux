@@ -51,14 +51,6 @@ git config --global user.email gurufor@yk20.com
 git config --global core.editor emacs
 git config --global credential.helper store
 
-function download_repository() {
-  repository_name=$((jq 'keys[0]' "$1"))
-  repository_url=$((jq '.[]))
-  
-  echo $repository_name
-  echo $repository_url
-}
-
 # Downloading all repositories
 mkdir Github
 cd Github
