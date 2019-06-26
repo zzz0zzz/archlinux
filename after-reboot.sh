@@ -1,12 +1,5 @@
 #!/bin/sh
 
-# Getting install-aur-package
-wget https://github.com/zzz0zzz/archlinux/raw/master/install-aur-package.sh
-chmod +x install-aur-package.sh
-
-# Deleting part 2 of install if exists
-test -f /install-part2.sh && sudo rm /install-part2.sh
-
 # Some more packages
 # texlive-most texlive-langextra
 # install-aur-package culmus
@@ -16,6 +9,22 @@ sudo pacman -S --noconfirm \
   dash checkbashisms bash-completion \
   rofi alsa-utils python-pipenv gdb \
   xdotool inotify-tools imagemagick ghostscript
+
+# Downloading all repositories
+mkdir Github
+cd Github
+wget -q -O - https://api.github.com/users/zzz0zzz/repos 
+  | jq '.[] | { (.name): .html_url } | .[]'
+  | xargs -n 1 git clone
+cd ..
+
+# Getting install-aur-package
+wget https://github.com/zzz0zzz/archlinux/raw/master/install-aur-package.sh
+chmod +x install-aur-package.sh
+
+# Deleting part 2 of install if exists
+test -f /install-part2.sh && sudo rm /install-part2.sh
+
 gpg --receive-keys FC918B335044912E # for dropbox
 ./install-aur-package.sh dropbox
 ./install-aur-package.sh xkblayout-state-git
@@ -50,14 +59,6 @@ git config --global user.name zzz0zzz
 git config --global user.email gurufor@yk20.com
 git config --global core.editor emacs
 git config --global credential.helper store
-
-# Downloading all repositories
-mkdir Github
-cd Github
-wget -q -O - https://api.github.com/users/zzz0zzz/repos 
-  | jq '.[] | { (.name): .html_url } | .[]'
-  | xargs -n 1 git clone
-cd ..
 
 # Cleaning
 rm after-reboot.sh
