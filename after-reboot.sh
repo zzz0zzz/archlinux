@@ -2,7 +2,7 @@
 
 pacman -Q git && exit # check if the script needs to run
 
-# the script shoud be run as amir
+su amir
 
 # Some more packages
 # texlive-most texlive-langextra
