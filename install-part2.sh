@@ -54,6 +54,5 @@ pacman -Syu --noconfirm
 # Some more packages
 pacman -S --noconfirm wget
 
-exit
 umount -R /mnt
-poweroff
+reboot
