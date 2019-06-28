@@ -1,5 +1,7 @@
 #!/bin/sh
 
+test pacman -Q git
+
 # Some more packages
 # texlive-most texlive-langextra
 # install-aur-package culmus
