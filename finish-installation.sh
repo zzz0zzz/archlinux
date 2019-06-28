@@ -2,6 +2,8 @@
 
 pacman -Q git && exit # check if the script needs to run
 
+# the script shoud be run as amir
+
 # Some more packages
 # texlive-most texlive-langextra
 # install-aur-package culmus
