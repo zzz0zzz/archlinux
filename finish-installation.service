@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/sbin/after-reboot.sh
+ExecStart=/usr/local/sbin/finish-installation.sh
 RemainAfterExit=false
 StandardOutput=journal
 
