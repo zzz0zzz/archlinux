@@ -51,6 +51,7 @@ echo 'Server = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf
 # Updating
 pacman -Syu --noconfirm
 
+# Preparing the finish-installation service
 pacman -S --noconfirm wget
 wget https://github.com/zzz0zzz/archlinux/raw/master/after-reboot.sh --output-document /usr/local/sbin/finish-installation.sh
 wget https://github.com/zzz0zzz/archlinux/raw/master/finish-installation.service --output-document /etc/systemd/system/finish-installation.service
