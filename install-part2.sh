@@ -53,6 +53,9 @@ pacman -Syu --noconfirm
 
 # Some more packages
 pacman -S --noconfirm wget
+# download finish-installation to /usr/loca/sbin
+# download service file to /etc/systemd/system
+
 
 umount -R /mnt
 reboot
