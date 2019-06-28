@@ -51,11 +51,9 @@ echo 'Server = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf
 # Updating
 pacman -Syu --noconfirm
 
-# Some more packages
 pacman -S --noconfirm wget
-# download finish-installation to /usr/loca/sbin
-# download service file to /etc/systemd/system
-
+wget https://github.com/zzz0zzz/archlinux/raw/master/after-reboot.sh --output-document /usr/local/sbin/finish-installation.sh
+wget https://github.com/zzz0zzz/archlinux/raw/master/finish-installation.service --output-document /etc/systemd/system/finish-installation.service
 
 umount -R /mnt
 reboot
