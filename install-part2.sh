@@ -55,6 +55,7 @@ pacman -Syu --noconfirm
 pacman -S --noconfirm wget
 wget https://github.com/zzz0zzz/archlinux/raw/master/after-reboot.sh --output-document /usr/local/sbin/finish-installation.sh
 wget https://github.com/zzz0zzz/archlinux/raw/master/finish-installation.service --output-document /etc/systemd/system/finish-installation.service
+systemctl enable finish-installation.service
 
 umount -R /mnt
 reboot
