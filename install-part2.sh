@@ -47,6 +47,7 @@ echo >> /etc/pacman.conf
 echo '[archlinuxfr]' >> /etc/pacman.conf
 echo 'SigLevel = Never' >> /etc/pacman.conf
 echo 'Server = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf
+pacman -Syu
 
 # Automatic login drop-in file
 mkdir /etc/systemd/system/getty@tty1.service.d
