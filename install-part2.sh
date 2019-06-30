@@ -55,9 +55,7 @@ echo 'ExecStart=' >> /etc/systemd/system/getty@tty1.service.d/override.conf
 echo 'ExecStart=-/usr/bin/agetty --autologin amir --noclear %I $TERM' >> /etc/systemd/system/getty@tty1.service.d/override.conf
 
 # Finish-installation service
-mkdir -p /etc/systemd/user/
-chmod -R 777 /etc/systemd/user/
-curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/finish-installation.service | sudo tee /etc/systemd/user/finish-installation.service > /dev/null
+curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/after-reboot-installation.service | sudo tee /etc/systemd/user/after-reboot-installation.service > /dev/null
 chmod 777 /etc/systemd/user/finish-installation.service
 curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/after-reboot-installation.sh | sudo tee /usr/local/bin/after-reboot-installation.sh > /dev/null
 chmod 777 /usr/local/bin/after-reboot-installation.sh
