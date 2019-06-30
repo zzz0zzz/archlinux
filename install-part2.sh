@@ -51,21 +51,17 @@ echo 'Server = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf
 # Updating
 pacman -Syu --noconfirm
 
-# Automatic login
+# Automatic login drop-in file
 mkdir /etc/systemd/system/getty@tty1.service.d
 echo '[Service]' >> /etc/systemd/system/getty@tty1.service.d/override.conf
 echo 'ExecStart=' >> /etc/systemd/system/getty@tty1.service.d/override.conf
 echo 'ExecStart=-/usr/bin/agetty --autologin amir --noclear %I $TERM' >> /etc/systemd/system/getty@tty1.service.d/override.conf
 systemctl daemon-reload
 
-# Finish install after reboot
-
-
 # Preparing the finish-installation service
-pacman -S --noconfirm wget
-wget https://github.com/zzz0zzz/archlinux/raw/master/after-reboot.sh --output-document /usr/local/sbin/finish-installation.sh
-wget https://github.com/zzz0zzz/archlinux/raw/master/finish-installation.service --output-document /etc/systemd/system/finish-installation.service
-systemctl enable finish-installation.service
+curl https://raw.githubusercontent.com/zzz0zzz/archlinux/master/after-reboot.sh > /usr/local/sbin/finish-installation.sh
+curl https://raw.githubusercontent.com/zzz0zzz/archlinux/master/finish-installation.service > /etc/systemd/system/finish-installation.service
+systemctl daemon-reload
 
 umount -R /mnt
 reboot
