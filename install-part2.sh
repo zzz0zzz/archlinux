@@ -56,7 +56,7 @@ echo 'ExecStart=-/usr/bin/agetty --autologin amir --noclear %I $TERM' >> /etc/sy
 
 # Finish-installation service
 curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/after-reboot-installation.service | sudo tee /etc/systemd/user/after-reboot-installation.service > /dev/null
-chmod 777 /etc/systemd/user/finish-installation.service
+chmod 777 /etc/systemd/user/after-reboot-installation.service
 curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/after-reboot-installation.sh | sudo tee /usr/local/bin/after-reboot-installation.sh > /dev/null
 chmod 777 /usr/local/bin/after-reboot-installation.sh
 
