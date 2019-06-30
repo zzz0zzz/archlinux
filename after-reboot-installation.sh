@@ -61,7 +61,7 @@ git config --global core.editor emacs
 git config --global credential.helper store
 
 # Cleaning
-rm after-reboot.sh
+rm after-reboot-installation.sh
 rm install-aur-package.sh
 
 
