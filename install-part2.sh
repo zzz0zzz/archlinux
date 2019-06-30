@@ -60,6 +60,7 @@ systemctl daemon-reload
 
 # Preparing the finish-installation service
 curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/after-reboot.sh | sudo tee /usr/local/sbin/finish-installation.sh > /dev/null
+# chmod to exec
 curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/finish-installation.service | sudo tee /etc/systemd/system/finish-installation.service > /dev/null
 curl https://raw.githubusercontent.com/zzz0zzz/archlinux/master/finish-installation.service > /etc/systemd/system/finish-installation.service
 systemctl daemon-reload
