@@ -59,9 +59,9 @@ echo 'ExecStart=-/usr/bin/agetty --autologin amir --noclear %I $TERM' >> /etc/sy
 systemctl daemon-reload
 
 # Preparing the finish-installation service
-curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/after-reboot.sh | sudo tee /usr/local/sbin/finish-installation.sh > /dev/null
-chmod +x 
 curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/finish-installation.service | sudo tee /home/amir/.config/systemd/user/finish-installation.service > /dev/null
+curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/after-reboot.sh | sudo tee /home/amir/usr/local/sbin/finish-installation.sh > /dev/null
+chmod +x 
 systemctl daemon-reload
 
 umount -R /mnt
