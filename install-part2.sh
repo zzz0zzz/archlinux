@@ -60,8 +60,9 @@ systemctl daemon-reload
 
 # Preparing the finish-installation service
 curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/finish-installation.service | sudo tee /home/amir/.config/systemd/user/finish-installation.service > /dev/null
-curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/after-reboot.sh | sudo tee /home/amir/usr/local/sbin/finish-installation.sh > /dev/null
-chmod +x 
+mkdir /home/amir/.local/bin
+curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/after-reboot.sh | sudo tee /home/amir/.local/bin/finish-installation.sh > /dev/null
+chmod a+x /home/amir/usr/local/sbin/finish-installation.sh
 systemctl daemon-reload
 
 umount -R /mnt
