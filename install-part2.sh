@@ -63,8 +63,8 @@ mkdir -p /etc/systemd/user/
 chmod -R 777 /etc/systemd/user/
 curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/finish-installation.service | sudo tee /etc/systemd/user/finish-installation.service > /dev/null
 chmod 777 /etc/systemd/user/finish-installation.service
-curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/after-reboot.sh | sudo tee /usr/local/bin/finish-installation.sh > /dev/null
-chmod 777 /usr/local/bin/finish-installation.sh
+curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/after-reboot-installation.sh | sudo tee /usr/local/bin/after-reboot-installation.sh > /dev/null
+chmod 777 /usr/local/bin/after-reboot-installation.sh
 systemctl daemon-reload
 
 umount -R /mnt
