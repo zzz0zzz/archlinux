@@ -5,7 +5,7 @@
 # install-aur-package culmus
 sudo pacman -S --noconfirm \
   firefox firefox-ublock-origin \
-  gnome-keyring git jq unzip \
+  gnome-keyring git wget jq unzip \
   dash checkbashisms bash-completion \
   rofi alsa-utils python-pipenv gdb \
   xdotool inotify-tools imagemagick ghostscript
