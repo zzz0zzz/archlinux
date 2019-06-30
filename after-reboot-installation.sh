@@ -13,8 +13,8 @@ sudo pacman -S --noconfirm \
 # Downloading all repositories
 mkdir Github
 cd Github
-wget -q -O - https://api.github.com/users/zzz0zzz/repos 
-  | jq '.[] | { (.name): .html_url } | .[]'
+wget -q -O - https://api.github.com/users/zzz0zzz/repos \
+  | jq '.[] | { (.name): .html_url } | .[]' \
   | xargs -n 1 git clone
 cd ..
 
