@@ -54,14 +54,7 @@ echo '[Service]' >> /etc/systemd/system/getty@tty1.service.d/override.conf
 echo 'ExecStart=' >> /etc/systemd/system/getty@tty1.service.d/override.conf
 echo 'ExecStart=-/usr/bin/agetty --autologin amir --noclear %I $TERM' >> /etc/systemd/system/getty@tty1.service.d/override.conf
 
-# Finish-installation service
-curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/after-reboot-installation.service | sudo tee /etc/systemd/user/after-reboot-installation.service > /dev/null
-chmod 777 /etc/systemd/user/after-reboot-installation.service
-curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/after-reboot-installation.sh | sudo tee /usr/local/bin/after-reboot-installation.sh > /dev/null
-chmod 777 /usr/local/bin/after-reboot-installation.sh
-
-exit # exit chroot
-systemctl daemon-reload
-
-unmount -R /mnt
-reboot
+# Downloading after-reboot-installation
+curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/after-reboot-installation.sh | sudo tee /home/amir/after-reboot-installation.sh > dev/null
+chown amir:amir /home/amir/after-reboot-installation.sh
+chmod u+x /home/amir/after-reboot-installation.sh
