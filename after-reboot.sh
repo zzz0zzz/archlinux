@@ -1,6 +1,7 @@
 #!/bin/sh
 
-pacman -Q git && exit # check if the script needs to be run
+# check if the script needs to be run
+pacman -Q git && exit
 
 # Some more packages
 # texlive-most texlive-langextra
