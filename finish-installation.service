@@ -1,10 +1,10 @@
 [Unit]
-Description=Finish Installation
+Description=After Reboot Installation
 After=network.target
 
 [Service]
 Type=oneshot
-ExecStart=/home/amir/.local/bin/finish-installation.sh
+ExecStart=/usr/local/bin/after-reboot-installation.sh
 StandardOutput=journal
 
 [Install]
