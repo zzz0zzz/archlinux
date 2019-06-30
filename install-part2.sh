@@ -48,15 +48,11 @@ echo '[archlinuxfr]' >> /etc/pacman.conf
 echo 'SigLevel = Never' >> /etc/pacman.conf
 echo 'Server = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf
 
-# Updating
-pacman -Syu --noconfirm
-
 # Automatic login drop-in file
 mkdir /etc/systemd/system/getty@tty1.service.d
 echo '[Service]' >> /etc/systemd/system/getty@tty1.service.d/override.conf
 echo 'ExecStart=' >> /etc/systemd/system/getty@tty1.service.d/override.conf
 echo 'ExecStart=-/usr/bin/agetty --autologin amir --noclear %I $TERM' >> /etc/systemd/system/getty@tty1.service.d/override.conf
-systemctl daemon-reload
 
 # Finish-installation service
 mkdir -p /etc/systemd/user/
@@ -65,7 +61,9 @@ curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/finish-instal
 chmod 777 /etc/systemd/user/finish-installation.service
 curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/after-reboot-installation.sh | sudo tee /usr/local/bin/after-reboot-installation.sh > /dev/null
 chmod 777 /usr/local/bin/after-reboot-installation.sh
+
+exit # exit chroot
 systemctl daemon-reload
 
-umount -R /mnt
+unmount -R /mnt
 reboot
