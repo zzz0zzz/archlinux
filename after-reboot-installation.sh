@@ -1,14 +1,5 @@
 #!/bin/sh
 
-# check if the script needs to be run
-pacman -Q git && exit
-
-rand=$((1 + RANDOM % 10))
-
-touch /home/amir/qqq$rand
-
-exit
-
 # Some more packages
 # texlive-most texlive-langextra
 # install-aur-package culmus
