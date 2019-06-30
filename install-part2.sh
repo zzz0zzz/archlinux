@@ -60,6 +60,7 @@ systemctl daemon-reload
 
 # Finish-installation service
 curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/finish-installation.service | sudo tee /home/amir/.config/systemd/user/finish-installation.service > /dev/null
+chown amir:amir /home/amir/.config/systemd/user/finish-installation.service
 mkdir /home/amir/.local/bin
 chown amir:amir /home/amir/.local/bin
 curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/after-reboot.sh | sudo tee /home/amir/.local/bin/finish-installation.sh > /dev/null
