@@ -58,7 +58,7 @@ echo 'ExecStart=' >> /etc/systemd/system/getty@tty1.service.d/override.conf
 echo 'ExecStart=-/usr/bin/agetty --autologin amir --noclear %I $TERM' >> /etc/systemd/system/getty@tty1.service.d/override.conf
 systemctl daemon-reload
 
-# Preparing the finish-installation service
+# Finish-installation service
 curl -s https://raw.githubusercontent.com/zzz0zzz/archlinux/master/finish-installation.service | sudo tee /home/amir/.config/systemd/user/finish-installation.service > /dev/null
 mkdir /home/amir/.local/bin
 chown amir:amir /home/amir/.local/bin
