@@ -5,7 +5,6 @@ After=network.target
 [Service]
 Type=oneshot
 ExecStart=/home/amir/.local/bin/finish-installation.sh
-RemainAfterExit=false
 StandardOutput=journal
 
 [Install]
